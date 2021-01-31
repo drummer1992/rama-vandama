@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import img from './contact.jpg'
 
-const url = 'http://localhost:9000/'
+const url = process.env.REACT_APP_SERVER_URL
 
 const validator = {
   name   : {
