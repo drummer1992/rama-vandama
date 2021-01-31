@@ -1,0 +1,33 @@
+.Container {
+    max-width: 1280px;
+    padding: 0 1.5rem;
+    margin: auto;
+    overflow: hidden;
+}
+
+.MainNav {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.MainNav ul {
+    display: flex;
+}
+
+.MainNav li {
+    padding: 1rem 1.5rem;
+}
+
+.MainNav a {
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+    border-bottom: 3px transparent solid;
+    padding-bottom: 0.5rem;
+    transition: border-color 0.5s;
+}
+
+.MainNav a:hover {
+    border-color: #333;
+}

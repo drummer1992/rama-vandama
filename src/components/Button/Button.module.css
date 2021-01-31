@@ -1,0 +1,22 @@
+.Button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    transition: all;
+    border: none;
+    cursor: pointer;
+}
+
+.Button .main {
+    color: #333;
+    background-color: #ffbc00;
+}
+
+.Button .light {
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.Button .dark {
+    color: #f4f4f4;
+    background-color: #333;
+}
