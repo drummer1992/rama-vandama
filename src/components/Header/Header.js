@@ -62,7 +62,7 @@ export const Header = () => {
           <span className="text-primary"> сильнішим </span>
           уже сьогодні!</h1>
         <p className="text-outlined">Рама сама себе не накачає!</p>
-        <a href="#about" className="btn">
+        <a href="#about" className="btn text-secondary">
           <i className="fas fa-chevron-right text-secondary"/>
           &nbsp;
           Далі

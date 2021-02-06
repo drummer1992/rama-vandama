@@ -4,7 +4,7 @@
 }
 
 .text-secondary {
-    color: #004aad;
+    color: #004aad !important;
 }
 
 .text-outlined {
@@ -30,14 +30,17 @@
     background: #fbd856;
     color: #fff;
 }
+
 .btn-secondary, .bg-secondary {
     background: #004aad;
     color: #fff;
 }
+
 .btn-dark, .bg-dark {
     background: #333;
     color: #fff;
 }
+
 .btn-light, .bg-light {
     background: #f4f4f4;
     color: #333;
@@ -52,10 +55,14 @@
 /* Flex items */
 .flex-items {
     display: flex;
-    text-align: center;
     justify-content: center;
     text-align: center;
     height: 100%;
+}
+
+/* Flex item */
+.flex-item {
+    width: 600px;
 }
 
 .flex-items > div {
@@ -144,4 +151,3 @@
     padding: 0 4px;
     margin: 0;
 }
-
