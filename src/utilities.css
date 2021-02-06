@@ -60,10 +60,10 @@
     height: 100%;
 }
 
-/* Flex item */
-.flex-item {
-    width: 600px;
-}
+/*!* Flex item *!*/
+/*.flex-item {*/
+/*    width: 600px;*/
+/*}*/
 
 .flex-items > div {
     padding: 20px;
