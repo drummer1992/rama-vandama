@@ -62,6 +62,8 @@
 
 .flex-items > div {
     padding: 20px;
+    display: flex;
+    width: 100%;
 }
 
 /* Flex columns */
