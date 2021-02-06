@@ -206,8 +206,9 @@ img {
 .footer .social {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 20px;
+  align-items: center;
+  justify-content: space-around !important;
+  width: 100px;
 }
 
 /* Mobile */
