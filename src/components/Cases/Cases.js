@@ -6,11 +6,15 @@ import img3 from './DSC_0871.jpg'
 export const Cases = () => (
   <section id="cases" className="cases flex-grid section-padding">
     <header className="section-header">
-      <h2 style={{ marginBottom: 0 }}>ТРЕНУВАННЯ</h2>
-      <p>і не тільки</p>
+      <h2>ТРЕНУВАННЯ</h2>
+      <p style={{ marginTop: 0 }}>і не тільки</p>
       <p>
-        В 2019 році <span>ramavandama</span> створювався як блог про спорт і самодосконалення.
+        В 2019 році ramavandama створювався як блог про спорт і самодосконалення.
+      </p>
+      <p>
         Сьогодні ж це ціла філософія, бренд. Ми постійно розвиваємося і створюємо щось нове.
+      </p>
+      <p>
         Слідкуйте за новинами щоб не пропустити найцікавіше.
       </p>
     </header>

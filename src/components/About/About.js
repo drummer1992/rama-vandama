@@ -17,7 +17,7 @@ export const About = () => {
     <React.Fragment>
       <section id="about" className="icons bg-light">
         <div className="flex-items">
-          <div className="flex-item">
+          <div>
             <Icon className="fas fa-heart fa-2x"/>
             <div>
               <h3>Здоровий спосіб життя</h3>
@@ -26,7 +26,7 @@ export const About = () => {
               </p>
             </div>
           </div>
-          <div className="flex-item">
+          <div>
             <Icon
               style={{ width: 65 }}
               className="fas fa-running fa-2x"
@@ -38,7 +38,7 @@ export const About = () => {
               </p>
             </div>
           </div>
-          <div className="flex-item">
+          <div>
             <Icon className="fas fa-dumbbell fa-2x"/>
             <div>
               <h3>Спорт - ліки від поганого настрою</h3>

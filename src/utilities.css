@@ -60,11 +60,6 @@
     height: 100%;
 }
 
-/*!* Flex item *!*/
-/*.flex-item {*/
-/*    width: 600px;*/
-/*}*/
-
 .flex-items > div {
     padding: 20px;
 }
@@ -127,16 +122,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: left;
 }
 
 .section-header h2 {
     font-size: 40px;
-    margin: 20px 0;
+    /*margin: 20px 0;*/
 }
 
 .section-padding {
-    padding: 20px 0;
+    /*padding: 20px 0;*/
 }
 
 /* Flex grid */

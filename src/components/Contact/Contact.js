@@ -3,25 +3,58 @@ import img from './contact.jpg'
 
 const url = process.env.REACT_APP_SERVER_URL
 
-const validator = {
-  name   : {
-    validate: value => value && value.trim(),
-    message : 'Необхідно заповнити ім`я'
-  },
-  email  : {
-    validate: value => /\S+@\S+\.\S+/.test(value),
-    message : 'Не корректний імейл',
-  },
-  message: {
-    validate: value => value && value.length >= 10,
-    message : 'Повідомлення повинно містити мінімум 10 символів'
+const assert = (condition, message) => {
+  if (!condition) {
+    throw new Error(message)
   }
 }
 
+const errorPicker = fn => (...params) => {
+  try {
+    fn(...params)
+  } catch (e) {
+    return e.message
+  }
+}
+
+const nameValidator = errorPicker(state => {
+  assert(state.name && state.name.trim(), 'Необхідно заповнити ім`я')
+})
+
+const emailValidator = errorPicker(state => {
+  if (state.email) {
+    assert(/\S+@\S+\.\S+/.test(state.email), 'Не корректний імейл')
+  } else {
+    assert(state.phone, 'Телефон або email обовязковий для заповнення')
+  }
+})
+
+const phoneValidator = errorPicker(state => {
+  if (state.phone) {
+    assert(/[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}/.test(state.phone), 'Не корректний телефон')
+  } else {
+    assert(state.email, 'Телефон або email обовязковий для заповнення')
+  }
+})
+
+const messageValidator = errorPicker(state => {
+  assert(state.message && state.message.length >= 10, 'Повідомлення повинно містити мінімум 10 символів')
+})
+
+const validators = [
+  nameValidator,
+  emailValidator,
+  phoneValidator,
+  messageValidator,
+]
+
+
 const initialState = {
-  name   : '',
-  email  : '',
-  message: '',
+  name    : '',
+  email   : '',
+  message : '',
+  phone   : '',
+  schedule: '',
 }
 
 export const Contact = () => {
@@ -39,15 +72,9 @@ export const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    let error
-
-    Object.keys(validator).reverse().forEach(input => {
-      const isValid = validator[input].validate(inputs[input])
-
-      if (!isValid) {
-        error = validator[input].message
-      }
-    })
+    const error = validators
+      .map(validate => validate(inputs))
+      .find(msg => Boolean(msg))
 
     if (error) {
       return setError(error)
@@ -90,7 +117,7 @@ export const Contact = () => {
                   type="text"
                   name="name"
                   id="name"
-                  placeholder="Введіть ім'я"
+                  placeholder="Ім'я"
                   value={inputs.name}
                   onChange={inputHandler('name')}
                 />
@@ -101,9 +128,31 @@ export const Contact = () => {
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Введіть email"
+                  placeholder="Email"
                   value={inputs.email}
                   onChange={inputHandler('email')}
+                />
+              </div>
+              <div className="form-control">
+                <label htmlFor="phone"></label>
+                <input
+                  type="phone"
+                  name="phone"
+                  id="phone"
+                  placeholder="Номер телефону"
+                  value={inputs.phone}
+                  onChange={inputHandler('phone')}
+                />
+              </div>
+              <div className="form-control">
+                <label htmlFor="schedule"></label>
+                <input
+                  type="text"
+                  name="schedule"
+                  id="schedule"
+                  placeholder="Зручні дні і години для тренувань"
+                  value={inputs.schedule}
+                  onChange={inputHandler('schedule')}
                 />
               </div>
               <div className="form-control">
@@ -111,7 +160,7 @@ export const Contact = () => {
                 <textarea
                   name="message"
                   id="message"
-                  placeholder="Введіть повідомлення..."
+                  placeholder="Повідомлення"
                   value={inputs.message}
                   onChange={inputHandler('message')}
                 />
