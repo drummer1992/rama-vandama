@@ -25,7 +25,7 @@ const emailValidator = errorPicker(state => {
   if (state.email) {
     assert(/\S+@\S+\.\S+/.test(state.email), 'Не корректний імейл')
   } else {
-    assert(state.phone, 'Телефон або email обовязковий для заповнення')
+    assert(state.phone, 'Телефон або email обовязковий')
   }
 })
 
